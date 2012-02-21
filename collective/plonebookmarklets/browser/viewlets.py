@@ -46,6 +46,3 @@ class BookmarkletsActionsViewlet(DocumentActionsViewlet):
 
 
     render = ViewPageTemplateFile("bookmarklets_document_actions.pt")
-
-
-
