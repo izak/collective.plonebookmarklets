@@ -31,8 +31,9 @@
                </div>
                 <a style="cursor:pointer;"
                    href="javascript:void(0);" id="toggleBookmarks"
-                   tal:define="title daction/title;"
-                   tal:content="daction/title" />
+                   tal:define="title daction/title;">
+                   <span tal:content="daction/title" />
+                </a>
             </li>
         </tal:condition>
     </tal:actions>
