@@ -16,10 +16,9 @@
         layer="..interfaces.IPloneBookmarkletsLayer"
   />
 
-
   <browser:viewlet
      name="plonebookmarklets.documentactions"
-     manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+     manager="plone.app.layout.viewlets.interfaces.IAboveContent"
      permission="zope2.View"
      class=".viewlets.BookmarkletsActionsViewlet"
      layer="..interfaces.IPloneBookmarkletsLayer"
