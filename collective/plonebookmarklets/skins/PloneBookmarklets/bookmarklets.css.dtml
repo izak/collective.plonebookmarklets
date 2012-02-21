@@ -6,8 +6,10 @@
 }
 
 #toggledBookmarks {
-    float:right;
-    margin-top: 10px;
+    float: left;
+    position: absolute;
+    right: 0;
+    margin-top: 1.25em;
     background: &dtml-backgroundColor;;
     display:none;
     z-index: 1000;
@@ -15,7 +17,7 @@
 
 #toggledBookmarks ul {
     border: 1px solid &dtml-globalBorderColor;;
-    padding: 5px 0;
+    padding: 0.5em 0;
     
 }
 

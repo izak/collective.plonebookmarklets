@@ -11,32 +11,30 @@
 	       tal:content="daction/title">
             </a>
         </li>
-	</tal:condition>
-    <tal:condition tal:condition="python:daction['id'] == 'bookmarklets'">
-        <script language="javascript" type="text/javascript">
-            jq(document).ready(function() {
-                jq('#toggleBookmarks').click(function() {
-                if (jq('#toggledBookmarks').is(":hidden"))
-            {
-                        jq('#toggledBookmarks').fadeIn("slow");
-            } else {
-                    jq('#toggledBookmarks').fadeOut("slow");
-            }
+        </tal:condition>
+        <tal:condition tal:condition="python:daction['id'] == 'bookmarklets'">
+            <script language="javascript" type="text/javascript">
+                jq(document).ready(function() {
+                    jq('#toggleBookmarks').click(function() {
+                        if (jq('#toggledBookmarks').is(":hidden"))
+                        {
+                            jq('#toggledBookmarks').fadeIn("slow");
+                        } else {
+                            jq('#toggledBookmarks').fadeOut("slow");
+                        }
+                    });
                 });
-    });
-        </script>
-
-        <li i18n:domain="PloneBookmarklets" id="document-action-bookmarklets">
-            <a style="cursor:pointer;"
-               href="javascript:void(0);" id="toggleBookmarks"
-               tal:define="title daction/title;"
-           tal:content="daction/title" />
-
+            </script>
+            <li i18n:domain="PloneBookmarklets" id="document-action-bookmarklets">
                <div id="toggledBookmarks"> 
                    <div tal:replace="structure here/@@bookmarklets" />
                </div>
-        </li>
-	</tal:condition>
+                <a style="cursor:pointer;"
+                   href="javascript:void(0);" id="toggleBookmarks"
+                   tal:define="title daction/title;"
+                   tal:content="daction/title" />
+            </li>
+        </tal:condition>
     </tal:actions>
 
 
