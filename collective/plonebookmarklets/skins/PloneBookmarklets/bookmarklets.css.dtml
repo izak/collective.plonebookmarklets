@@ -19,5 +19,9 @@
     
 }
 
+#bookmarklets {
+    display: inline;
+    float: right;
+}
 
 /* </dtml-with> */
