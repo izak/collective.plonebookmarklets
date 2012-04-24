@@ -27,7 +27,7 @@
             </script>
             <li i18n:domain="PloneBookmarklets" id="document-action-bookmarklets">
                <div id="toggledBookmarks"> 
-                   <div tal:replace="structure here/@@bookmarklets" />
+                   <div tal:replace="structure here/@@bookmarklets|nothing" />
                </div>
                 <a style="cursor:pointer;"
                    href="javascript:void(0);" id="toggleBookmarks"
