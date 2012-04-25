@@ -21,10 +21,10 @@ __author__  = '''Brent Lambert, David Ray, Jon Thomas, Shane Graber'''
 __version__   = '$ Revision 0.0 $'[11:-2]
 
 
-from plone.app.layout.viewlets.content import DocumentActionsViewlet
+from plone.app.layout.viewlets import ViewletBase
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
-class BookmarkletsActionsViewlet(DocumentActionsViewlet):
+class BookmarkletsActionsViewlet(ViewletBase):
 
     def getSites(self):
         """ returns bookmarking sites. """
