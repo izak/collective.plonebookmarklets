@@ -20,39 +20,22 @@
 __author__  = '''Brent Lambert, David Ray, Jon Thomas, Shane Graber'''
 __version__   = '$ Revision 0.0 $'[11:-2]
 
+from urlparse import urlparse
 from Products.Five.browser import BrowserView
-from zope.component import getUtility
-from zope.interface import implements
-from urlparse import urlsplit
-from xml.dom import minidom
-from string import split, find
-
 
 class BookmarkletsView(BrowserView):
     """ Render the bookmarklets view """
 
-    def __init__(self, context, request):
-        self.context = context
-        self.request = request
-        self.props = self.context.portal_url.portal_properties.bookmarklets_properties
-
     def getSites(self):
         """ returns bookmarking sites. """
-        if self.context.Type() != 'Plone Site':
-            page = self.context.aq_inner.aq_parent
-        else:
-            page = self.context
-        page_url = page.absolute_url()
-        page_title = page.title.replace(' ', '+')
-        page_descr = page.Description()
-    
-        
-        displayed_sites = []
-        sites = []       
-    
-        displayed_sites = self.props.displayed_sites 
-    
-        for x in displayed_sites: 
-            sites.append(getattr(self.props, x)) 
-        return sites
+        portal = self.context.restrictedTraverse(
+            '@@plone_portal_state').portal()
+        pp = portal.portal_properties
+        props = pp.bookmarklets_properties
+        displayed_sites = props.displayed_sites 
+        sites = []
+        for name, url, icon in [getattr(props, x) for x in displayed_sites]:
+            icon = '%s/%s' % (portal.absolute_url(), icon)
+            sites.append((name, url, icon))
 
+        return sites
