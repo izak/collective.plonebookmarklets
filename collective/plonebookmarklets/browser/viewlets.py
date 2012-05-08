@@ -25,24 +25,4 @@ from plone.app.layout.viewlets import ViewletBase
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 class BookmarkletsActionsViewlet(ViewletBase):
-
-    def getSites(self):
-        """ returns bookmarking sites. """
-        page = self.aq_parent
-        page_url = page.absolute_url()
-        page_title = page.title.replace(' ', '+')
-        page_descr = page.Description()
-    
-        
-        available_sites = []
-        sites = []       
-        
-        props = self.context.portal_url.portal_properties.bookmarklets_properties
-        available_sites = props.available_sites 
-    
-        for x in available_sites: 
-            sites.append(getattr(props, x)) 
-        return sites
-
-
     render = ViewPageTemplateFile("bookmarklets_document_actions.pt")
